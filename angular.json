@@ -129,7 +129,38 @@
           }
         }
       }
+    },
+    "bdd-test": {
+      "root": "bdd/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "devServerTarget": "bdd:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bdd:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "bdd/tsconfig.bdd.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
+
+
   },
+
+
   "defaultProject": "bdd"
 }
